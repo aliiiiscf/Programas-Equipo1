@@ -1,3 +1,15 @@
+/* 
+Programa 1 M√©todos Num√©ricos 
+
+Equipo 2
+
+Integrantes:
+Camacho Flores Alitzel Sophia
+Herrera Hern√°ndez Diego
+Medina Hern√°ndez Ram√≥n
+Vel√°zquez Martinez Antonio
+*/
+
 #include <stdio.h>
 #include <math.h>
 #include <stdlib.h> // Para usar exit()
@@ -27,7 +39,7 @@ void biseccion(float (*funcion)(float), float a, float b, float tolerancia, int 
     float pO = a; // Valor anterior de p
     
     if(funcion(a) * funcion(b) > 0){
-        printf("Las funciones no son de signos opuestos, no hay raÌces.\n");
+        printf("Las funciones no son de signos opuestos, no hay ra√≠ces.\n");
         return;
     }
     
@@ -42,7 +54,7 @@ void biseccion(float (*funcion)(float), float a, float b, float tolerancia, int 
         printf("%9d | %10.6f | %10.6f | %10.6f | %10.6f | %10.6f\n", iteracion, a, b, p, fp, errorRelativo);
         
         if(fp == 0 || errorRelativo < tolerancia){
-            printf("RaÌz encontrada: %f en la iteracion %d con tolerancia %f\n", p, iteracion, tolerancia);
+            printf("Ra√≠z encontrada: %f en la iteracion %d con tolerancia %f\n", p, iteracion, tolerancia);
             return;
         }
         
@@ -107,7 +119,7 @@ int main() {
     float (*funcion_ptr)(float) = NULL;
 
     while (otra != 2) {
-        // SelecciÛn de funciÛn
+        // Selecci√≥n de funci√≥n
         do {
             printf("\n\n-------------Menu de funciones-------------");
             printf("\n1. f(x) = x^2 * cos(x) - 2x");
@@ -128,7 +140,7 @@ int main() {
             }
         } while (funcion < 1 || funcion > 4);
         
-        // Asignar el puntero a la funciÛn seleccionada
+        // Asignar el puntero a la funci√≥n seleccionada
         switch (funcion) {
             case 1:
                 funcion_ptr = funcion1;
@@ -147,7 +159,7 @@ int main() {
                 exit(1); // Salir del programa
         }
         
-        // SelecciÛn de mÈtodo
+        // Selecci√≥n de m√©todo
         do {
             printf("\n\n-------------Menu de metodos-------------");
             printf("\n1. Metodo de biseccion");
@@ -166,7 +178,7 @@ int main() {
             
         } while (metodo < 1 || metodo > 2);
         
-        // Entrada de par·metros
+        // Entrada de par√°metros
         printf("\n\nIngrese valores para el intervalo");
         printf("\na: ");
         scanf("%f", &a);
@@ -192,7 +204,7 @@ int main() {
         	continue;
 		}
         
-        // Ejecutar el mÈtodo seleccionado
+        // Ejecutar el m√©todo seleccionado
         if(metodo == 1){
             biseccion(funcion_ptr, a, b, tolerancia, iteraciones);
         } else if(metodo == 2){
@@ -208,7 +220,7 @@ int main() {
                 otra = 0; // Forzar reintento
             }
             if (otra != 1 && otra != 2) {
-                printf("OpciÛn no valida. Por favor, ingrese 1 o 2.\n");
+                printf("Opci√≥n no valida. Por favor, ingrese 1 o 2.\n");
             }
         } while (otra != 1 && otra != 2);
     }
